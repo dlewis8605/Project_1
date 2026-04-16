@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="About Splashes Aquatics. Learn about our philosophy and dedication to teaching swimming properly.">
+    <title>About Us - Splashes Aquatics</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* ===== ABOUT PAGE SPECIFIC STYLES ===== */
+
+        /* Hero: full image visible, no tint */
+        .about-hero {
+            width: 100%;
+            overflow: hidden;
+        }
+        .about-hero img {
+            width: 100%;
+            display: block;
+        }
+
+        /* Navbar transparent at 1200px+ */
+        @media (min-width: 1200px) {
+            .navbar-about {
+                background-color: rgba(26, 46, 56, 0.5) !important;
+            }
+            .navbar-about .navbar-nav {
+                flex-direction: row;
+                align-items: center;
+            }
+            .navbar-about .nav-item {
+                white-space: nowrap;
+            }
+            .navbar-about .navbar-brand img {
+                height: auto;
+                max-height: 60px;
+            }
+        }
+
+        /* Body content max-width constraint */
+        .about-body-content {
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        /* Background image sections - full width, vertically constrained */
+        .about-bg-section {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+        }
+        .about-bg-section .bg-img {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            z-index: 0;
+        }
+        .about-bg-section .content-overlay {
+            position: relative;
+            z-index: 1;
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        /* Clickable testimonials link */
+        .testimonials-link {
+            color: var(--color-cyan);
+            cursor: pointer;
+            font-family: var(--font-deco);
+            font-size: 1.3rem;
+            display: inline-block;
+            margin-top: 15px;
+            transition: color 0.3s ease;
+        }
+        .testimonials-link:hover {
+            color: var(--color-cyan-hover);
+            text-decoration: underline;
+        }
+
+        /* Lightbox overlay */
+        .lightbox-overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            z-index: 9999;
+            overflow-y: auto;
+            padding: 40px 20px;
+        }
+        .lightbox-overlay.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .lightbox-content {
+            background: var(--color-light-gray);
+            border-radius: 12px;
+            max-width: 900px;
+            width: 100%;
+            padding: 40px 30px;
+            position: relative;
+            text-align: center;
+        }
+        .lightbox-close {
+            position: absolute;
+            top: 15px; right: 20px;
+            font-size: 28px;
+            color: var(--color-dark-slate);
+            cursor: pointer;
+            background: none;
+            border: none;
+            line-height: 1;
+            z-index: 10;
+        }
+        .lightbox-close:hover {
+            color: var(--color-cyan);
+        }
+
+        /* Awards grid */
+        .awards-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .awards-grid img {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+            background: #fff;
+            border-radius: 8px;
+            padding: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        @media (max-width: 576px) {
+            .awards-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
+            }
+        }
+
+        /* ===== FOOTER STYLES ===== */
+        .about-footer .social-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            color: white;
+            font-size: 16px;
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+        .about-footer .social-icon:hover {
+            opacity: 0.8;
+            color: white;
+        }
+
+        .about-footer {
+            background-image: url('images/footer-bg.jpeg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            padding: 50px 0 30px;
+            color: var(--color-dark-gray);
+        }
+        .about-footer .footer-logo {
+            display: block;
+            margin: 0 auto 30px;
+            height: 50px;
+        }
+
+        /* Footer nav + social row */
+        .footer-nav-social {
+            text-align: center;
+        }
+        .footer-nav-links {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 15px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px 20px;
+        }
+        .footer-nav-links li a {
+            color: var(--color-dark-slate);
+            font-weight: bold;
+            font-family: var(--font-body);
+            font-size: 14px;
+            text-decoration: none;
+        }
+        .footer-nav-links li a:hover {
+            color: var(--color-cyan);
+        }
+        .footer-social-icons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+
+        @media (min-width: 1200px) {
+            .footer-nav-social {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+            .footer-nav-links {
+                margin-bottom: 0;
+                justify-content: flex-start;
+            }
+            .footer-social-icons {
+                margin-bottom: 0;
+                justify-content: flex-end;
+            }
+        }
+
+        .footer-separator {
+            border: none;
+            border-top: 1px solid rgba(0,0,0,0.15);
+            max-width: 1000px;
+            margin: 20px auto;
+        }
+
+        /* Contact info row */
+        .footer-contacts {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .footer-contact-item {
+            text-align: center;
+            flex: 1 1 0;
+            min-width: 140px;
+            padding: 5px 8px;
+        }
+        .footer-contact-item strong {
+            display: block;
+            font-size: 13px;
+            color: var(--color-dark-slate);
+        }
+        .footer-contact-item a {
+            font-size: 13px;
+            color: var(--color-med-gray);
+            text-decoration: none;
+        }
+        .footer-contact-item a:hover {
+            color: var(--color-cyan);
+        }
+
+        /* Bottom row: sponsors left, copyright right */
+        .footer-bottom-row {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .footer-sponsors {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 12px;
+        }
+        .footer-sponsors img {
+            height: 45px;
+            width: auto;
+        }
+        .footer-copyright {
+            text-align: center;
+            font-size: 12px;
+            color: var(--color-med-gray);
+        }
+        @media (min-width: 768px) {
+            .footer-bottom-row {
+                justify-content: space-between;
+            }
+            .footer-sponsors {
+                justify-content: flex-start;
+            }
+            .footer-copyright {
+                text-align: right;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-splashes fixed-top transition-all">
+        <div class="container">
+            <a class="navbar-brand" href="home.html">
+                <img src="images/logo-small.png" alt="Splashes Aquatics Logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto align-items-center">
+                    <li class="nav-item active"><a class="nav-link text-info" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="swimlessons.html">Swimming Lessons</a></li>
+                    <li class="nav-item"><a class="nav-link" href="swimprograms.html">Swim Programs</a></li>
+                    <li class="nav-item"><a class="nav-link" href="adultPrograms.html">Adult Programs</a></li>
+                    <li class="nav-item"><a class="nav-link" href="home.html#locations">Locations</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
+                    <li class="nav-item ml-lg-3 mt-2 mt-lg-0">
+                        <a href="contact.html" class="btn btn-splashes bg-white text-dark border-white" style="border-radius:20px;">Register / Sign In</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section: full image, no tint -->
+    <header class="about-hero">
+        <img src="images/about-us-hero.jpeg" alt="About Splashes Aquatics">
+    </header>
+
+    <!-- Our Philosophy Section -->
+    <section class="about-bg-section">
+        <img src="images/about-our-philosophy-bg.jpeg" alt="" class="bg-img" aria-hidden="true">
+        <div class="content-overlay">
+            <h2 class="heading-deco text-info mb-4">Our Philosophy</h2>
+            <p class="lead text-dark">Our mission is to educate and motivate individuals to be safer and learn proper swimming technique.</p>
+            <p>We have chosen to share our love of swimming with children and believe there is a swimmer in every child. We pride ourselves on teaching the necessary skills needed to become a comfortable, proficient swimmer right from the beginning.</p>
+        </div>
+    </section>
+
+    <!-- We Do A Pretty Good Job Section -->
+    <section class="about-bg-section">
+        <img src="images/about-we-do-a-pretty-good-job-bg.jpeg" alt="" class="bg-img" aria-hidden="true">
+        <div class="content-overlay">
+            <h2 class="heading-deco text-info mb-4">We Do A Pretty Good Job</h2>
+            <p>Experience excellence through Splashes' award-winning programs where safety, fast progress, and a fun environment come first. Join the swim school that loves what they do and it shows.</p>
+            <span class="testimonials-link" id="openLightbox">Hear What Families Are Saying About Us</span>
+        </div>
+    </section>
+
+    <!-- Awards Section -->
+    <section class="py-5 bg-white">
+        <div class="about-body-content px-3">
+            <h2 class="heading-deco text-info mb-5">Awards We've Won</h2>
+            <div class="awards-grid">
+                <img src="images/awards/bay-area-parent-2019.jpeg" alt="Bay Area Parent 2019">
+                <img src="images/awards/bay-area-parent-gold2020.png" alt="Bay Area Parent Gold 2020">
+                <img src="images/awards/best-colorado-community-media-2021.jpeg" alt="Best Colorado Community Media 2021">
+                <img src="images/awards/best-of-la-kids-winner.jpeg" alt="Best of LA Kids Winner">
+                <img src="images/awards/best-of-the-best-2018.jpeg" alt="Best of the Best 2018">
+                <img src="images/awards/colorado-parenting-family-fav2019.jpeg" alt="Colorado Parenting Family Favorite 2019">
+                <img src="images/awards/colorado-parenting-family-fav2020.png" alt="Colorado Parenting Family Favorite 2020">
+                <img src="images/awards/colorado-parenting-family-fav2021.png" alt="Colorado Parenting Family Favorite 2021">
+                <img src="images/awards/gold-daisy-award-finalist-2018.jpeg" alt="Gold Daisy Award Finalist 2018">
+                <img src="images/awards/mla-swim-lessons-winner-2020-250x250.png" alt="MLA Swim Lessons Winner 2020">
+                <img src="images/awards/website-parenting-oc-2019.jpeg" alt="Website Parenting OC 2019">
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Lightbox -->
+    <div class="lightbox-overlay" id="testimonialsLightbox">
+        <div class="lightbox-content">
+            <button class="lightbox-close" id="closeLightbox" aria-label="Close">&times;</button>
+            <h2 class="heading-deco mb-5">Hear What Families Are Saying About Us</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card border-0 shadow-sm h-100">
+                        <div class="card-body">
+                            <i class="fas fa-quote-left fa-2x text-info mb-3"></i>
+                            <p class="card-text">"My kids learned to swim in just a few weeks. The instructors are amazing and patient!"</p>
+                            <h6 class="font-weight-bold text-dark">- Sarah Jenkins</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card border-0 shadow-sm h-100">
+                        <div class="card-body">
+                            <i class="fas fa-quote-left fa-2x text-info mb-3"></i>
+                            <p class="card-text">"The facility is top-notch. Clean water, great atmosphere, and we love the parent &amp; me classes."</p>
+                            <h6 class="font-weight-bold text-dark">- David Lee</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card border-0 shadow-sm h-100">
+                        <div class="card-body">
+                            <i class="fas fa-quote-left fa-2x text-info mb-3"></i>
+                            <p class="card-text">"Splashes changed our summer. Thank you for making water safety fun for the kids."</p>
+                            <h6 class="font-weight-bold text-dark">- Maria Gonzalez</h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="about-footer">
+        <div class="container">
+            <img src="images/wave-small.png" alt="Splashes Logo" class="footer-logo">
+
+            <!-- Nav + Social row -->
+            <div class="footer-nav-social">
+                <ul class="footer-nav-links">
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="home.html#locations">Locations</a></li>
+                    <li><a href="#">FAQs</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="contact.html">Register / Sign In</a></li>
+                    <li><a href="contact.html">Careers</a></li>
+                </ul>
+                <div class="footer-social-icons">
+                    <a href="#" class="social-icon social-linkedin"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="social-icon social-instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-icon social-twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-icon social-yelp"><i class="fab fa-yelp"></i></a>
+                    <a href="#" class="social-icon social-facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-icon social-youtube"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+
+            <hr class="footer-separator">
+
+            <!-- Contact info -->
+            <div class="footer-contacts">
+                <div class="footer-contact-item">
+                    <strong>Orange County</strong>
+                    <a href="tel:9494500777">(949) 450-0777</a>
+                </div>
+                <div class="footer-contact-item">
+                    <strong>San Diego County</strong>
+                    <a href="tel:7606039400">(760) 603-9400</a>
+                </div>
+                <div class="footer-contact-item">
+                    <strong>Los Angeles County</strong>
+                    <a href="tel:6268361200">(626) 836-1200</a>
+                </div>
+                <div class="footer-contact-item">
+                    <strong>Northern California</strong>
+                    <a href="tel:4082791700">(408) 279-1700</a>
+                </div>
+                <div class="footer-contact-item">
+                    <strong>Denver</strong>
+                    <a href="tel:7203447700">(720) 344-7700</a>
+                </div>
+            </div>
+
+            <hr class="footer-separator">
+
+            <!-- Sponsors + Copyright -->
+            <div class="footer-bottom-row">
+                <div class="footer-sponsors">
+                    <img src="images/sponsors/footer-usssa-logo-2.png" alt="USSSA">
+                    <img src="images/sponsors/footer-ndpa-logo.png" alt="NDPA">
+                    <img src="images/sponsors/footer-member-issa-logo.png" alt="ISSA Member">
+                    <img src="images/sponsors/footer-stop-drowning-now-logo.png" alt="Stop Drowning Now">
+                </div>
+                <div class="footer-copyright">
+                    &copy; 2022 Splashes.<br>All Rights Reserved
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="js/script.js"></script>
+    <script>
+        // Lightbox open/close
+        document.getElementById('openLightbox').addEventListener('click', function() {
+            document.getElementById('testimonialsLightbox').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+        document.getElementById('closeLightbox').addEventListener('click', function() {
+            document.getElementById('testimonialsLightbox').classList.remove('active');
+            document.body.style.overflow = '';
+        });
+        // Close on backdrop click
+        document.getElementById('testimonialsLightbox').addEventListener('click', function(e) {
+            if (e.target === this) {
+                this.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+        // Close on Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                document.getElementById('testimonialsLightbox').classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+    </script>
+</body>
+</html>

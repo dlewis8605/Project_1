@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Splashes Aquatics Swim School offers professional swimming lessons for all ages and abilities. Explore our programs, find a location, and get started today.">
+    <title>Splashes Aquatics - Right from the Beginning</title>
+    <!-- Bootstrap 4 CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-splashes fixed-top transition-all">
+        <div class="container">
+            <a class="navbar-brand" href="home.html">
+                <img src="images/logo-small.png" alt="Splashes Aquatics Logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto align-items-center">
+                    <li class="nav-item active"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="swimlessons.html">Swimming Lessons</a></li>
+                    <li class="nav-item"><a class="nav-link" href="swimprograms.html">Swim Programs</a></li>
+                    <li class="nav-item"><a class="nav-link" href="adultPrograms.html">Adult Programs</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#locations">Locations</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
+                    <li class="nav-item ml-lg-3 mt-2 mt-lg-0">
+                        <a href="contact.html" class="btn btn-splashes bg-white text-dark border-white" style="border-radius:20px;">Register / Sign In</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero-section" style="background-image: url('images/home.jpeg');">
+        <div class="container">
+            <h1>Learning it the Right Way,<br>Right from the Beginning</h1>
+            <div class="mt-4">
+                <a href="#" class="btn btn-splashes bg-white text-info font-weight-bold mx-2">Informational Video</a>
+                <a href="#" class="btn btn-splashes bg-white text-info font-weight-bold mx-2">Swimvenger Video</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Banners -->
+    <section class="banner-register text-center" style="background-color: #D36C18; padding: 20px 0;">
+        <a href="contact.html" style="text-decoration: none;">
+            <h2 class="text-white mb-0" style="font-size: 3rem;">Register Online Here</h2>
+        </a>
+    </section>
+    <section class="text-center">
+        <a href="contact.html">
+            <img src="images/ww-site-hiring-banner-resized.png" alt="Now Hiring Swim Instructors" class="img-fluid border-0" style="width: 80%;">
+        </a>
+    </section>
+
+    <!-- Content Section -->
+    <section class="py-5 bg-white hands-on-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-12 col-xl-6">
+                    <h2 class="mb-4">Hands On Teaching</h2>
+                    <p>Splashes Aquatics Swim School provides high quality swim instruction and the ideal environment for learning how to swim. Our swim instructors use specialized “muscle memory” teaching techniques that help our students progress at a quick rate. Grouped by age and ability, our students benefit from swim classes that offer personalized attention. It’s never too late to learn to swim!</p>
+                    
+                    <h5 class="mt-4 text-dark font-weight-bold">Splashes Aquatics Offers:</h5>
+                    <ul>
+                        <li>Private Swimming Lessons - All Locations</li>
+                        <li>Semi-Private Swimming Lessons - All Locations</li>
+                        <li>Parent & Me (Baby) Swimming Lessons - Select Locations</li>
+                    </ul>
+                    
+                    <p>Select locations also offer additional swim programs such as swim competitions, swim teams, water aerobics, aquatic therapy, swim camps and more! To learn more about the Splashes Family Swim School near you, select a location below.</p>
+                    
+                    <p class="font-weight-bold mt-4">Ready to sign up?</p>
+                    <a href="contact.html" class="btn btn-splashes shadow-sm">REGISTER NOW</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Locations Section (jQuery AJAX Target) -->
+    <section id="locations" class="py-5 text-white" style="background-color: var(--color-dark-slate); position: relative; overflow: hidden;">
+        <!-- Background map -->
+        <img src="images/home-our-locations-map.png" alt="Map BG" style="position: absolute; right: 0; top: 0; height: 100%; opacity: 0.2; object-fit: cover;">
+        <div class="container position-relative z-1">
+            <div class="row">
+                <div class="col-md-6">
+                    <h2 class="font-weight-bold text-white mb-3" style="font-size: 2.5rem;">Find a Splashes<br>Swim School<br>near you</h2>
+                    <h4 class="mt-4 mb-4 text-white">Family Swim School<br>Locations</h4>
+                    <p class="mb-4">Splashes Aquatics offers the finest professional swimming lessons from 21 swim schools and aquatic centers in California and Denver.</p>
+                    <a href="#locations" class="btn btn-splashes bg-info text-white border-0 shadow">Find a Location Near You</a>
+                    
+                    <!-- Dynamic AJAX Location Block -->
+                    <div class="mt-5 bg-dark p-4 rounded shadow-sm" id="locations-ajax-container">
+                        <div class="text-center"><i class="fas fa-spinner fa-spin fa-2x"></i><br>Loading locations...</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Awards Section -->
+    <section class="py-5 text-center bg-white">
+        <div class="container">
+            <h2 class="mb-5 heading-deco" style="font-size: 3rem;">Awards We've Won</h2>
+            <div class="row justify-content-center align-items-center">
+                <div class="col-md-8">
+                    <!-- We use a placeholder image for awards, assume they exist or use fontawesome icons -->
+                    <div class="d-flex flex-wrap justify-content-center gap-4">
+                        <i class="fas fa-award fa-4x text-warning mx-4 my-3"></i>
+                        <i class="fas fa-trophy fa-4x text-info mx-4 my-3"></i>
+                        <i class="fas fa-medal fa-4x text-danger mx-4 my-3"></i>
+                        <i class="fas fa-star fa-4x text-success mx-4 my-3"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer-new">
+        <div class="container">
+            <img src="images/wave-small.png" alt="Splashes Logo" class="footer-logo">
+            <div class="footer-nav-social">
+                <ul class="footer-nav-links">
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="#locations">Locations</a></li>
+                    <li><a href="#">FAQs</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="contact.html">Register / Sign In</a></li>
+                    <li><a href="contact.html">Careers</a></li>
+                </ul>
+                <div class="footer-social-icons">
+                    <a href="#" class="social-icon social-linkedin"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="social-icon social-instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-icon social-twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-icon social-yelp"><i class="fab fa-yelp"></i></a>
+                    <a href="#" class="social-icon social-facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-icon social-youtube"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <hr class="footer-separator">
+            <div class="footer-contacts">
+                <div class="footer-contact-item"><strong>Orange County</strong><a href="tel:9494500777">(949) 450-0777</a></div>
+                <div class="footer-contact-item"><strong>San Diego County</strong><a href="tel:7606039400">(760) 603-9400</a></div>
+                <div class="footer-contact-item"><strong>Los Angeles County</strong><a href="tel:6268361200">(626) 836-1200</a></div>
+                <div class="footer-contact-item"><strong>Northern California</strong><a href="tel:4082791700">(408) 279-1700</a></div>
+                <div class="footer-contact-item"><strong>Denver</strong><a href="tel:7203447700">(720) 344-7700</a></div>
+            </div>
+            <hr class="footer-separator">
+            <div class="footer-bottom-row">
+                <div class="footer-sponsors">
+                    <img src="images/sponsors/footer-usssa-logo-2.png" alt="USSSA">
+                    <img src="images/sponsors/footer-ndpa-logo.png" alt="NDPA">
+                    <img src="images/sponsors/footer-member-issa-logo.png" alt="ISSA Member">
+                    <img src="images/sponsors/footer-stop-drowning-now-logo.png" alt="Stop Drowning Now">
+                </div>
+                <div class="footer-copyright">&copy; 2022 Splashes.<br>All Rights Reserved</div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- jQuery, Vue, Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>

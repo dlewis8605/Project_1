@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contact Splashes Aquatics. We'd love to help.">
+    <title>Contact Us - Splashes Aquatics</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-splashes fixed-top transition-all">
+        <div class="container">
+            <a class="navbar-brand" href="home.html">
+                <img src="images/logo-small.png" alt="Splashes Aquatics Logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="swimlessons.html">Swimming Lessons</a></li>
+                    <li class="nav-item"><a class="nav-link" href="swimprograms.html">Swim Programs</a></li>
+                    <li class="nav-item"><a class="nav-link" href="adultPrograms.html">Adult Programs</a></li>
+                    <li class="nav-item"><a class="nav-link" href="home.html#locations">Locations</a></li>
+                    <li class="nav-item active"><a class="nav-link text-info" href="contact.html">Contact Us</a></li>
+                    <li class="nav-item ml-lg-3 mt-2 mt-lg-0">
+                        <a href="contact.html" class="btn btn-splashes bg-white text-dark border-white" style="border-radius:20px;">Register / Sign In</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero-section" style="background-image: url('images/contact-hero.jpeg'); padding: 100px 0;">
+        <div class="container">
+            <h1>Contact Us</h1>
+        </div>
+    </header>
+
+    <section class="py-5 bg-white">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-5 mb-5 mb-md-0">
+                    <h2 class="heading-deco text-info mb-4">We'd love to help.</h2>
+                    <p class="lead">Send us an email using the form and a Splashes representative will get back to you as soon as possible.</p>
+                    <div class="mt-4">
+                        <h5 class="text-dark"><i class="fas fa-phone-alt text-info mr-2"></i> Corporate Office</h5>
+                        <p class="text-muted">(800) 123-SWIM</p>
+                    </div>
+                    <div class="mt-4">
+                        <h5 class="text-dark"><i class="fas fa-envelope text-info mr-2"></i> Email Support</h5>
+                        <p class="text-muted">info@splashesaquatics.com</p>
+                    </div>
+                </div>
+                <div class="col-md-7">
+                    <div class="card shadow border-0 p-4" style="background-color: var(--color-light-gray);">
+                        <h4 class="mb-4 text-dark font-weight-bold">Send us a Message</h4>
+                        <!-- HTML FORM REQUIREMENT -->
+                        <form action="#" method="get" id="contactForm">
+                            <div class="row">
+                                <div class="col-md-6 form-group">
+                                    <label for="firstName">First Name</label>
+                                    <input type="text" id="firstName" class="form-control form-control-splashes" required placeholder="John">
+                                </div>
+                                <div class="col-md-6 form-group">
+                                    <label for="lastName">Last Name</label>
+                                    <input type="text" id="lastName" class="form-control form-control-splashes" required placeholder="Doe">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="emailAddress">Email Address</label>
+                                <input type="email" id="emailAddress" class="form-control form-control-splashes" required placeholder="john@example.com">
+                            </div>
+                            <div class="form-group">
+                                <label for="subject">Subject</label>
+                                <select id="subject" class="form-control form-control-splashes">
+                                    <option value="general">General Inquiry</option>
+                                    <option value="lessons">Swim Lessons</option>
+                                    <option value="careers">Careers</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Your Message</label>
+                                <textarea id="message" rows="4" class="form-control form-control-splashes" required placeholder="How can we help?"></textarea>
+                            </div>
+                            <!-- HTML Comment Example: Submit Button -->
+                            <button type="submit" class="btn btn-splashes shadow mt-3 w-100">Submit Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer-new">
+        <div class="container">
+            <img src="images/wave-small.png" alt="Splashes Logo" class="footer-logo">
+            <div class="footer-nav-social">
+                <ul class="footer-nav-links">
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="home.html#locations">Locations</a></li>
+                    <li><a href="#">FAQs</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="contact.html">Register / Sign In</a></li>
+                    <li><a href="contact.html">Careers</a></li>
+                </ul>
+                <div class="footer-social-icons">
+                    <a href="#" class="social-icon social-linkedin"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="social-icon social-instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-icon social-twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-icon social-yelp"><i class="fab fa-yelp"></i></a>
+                    <a href="#" class="social-icon social-facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-icon social-youtube"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <hr class="footer-separator">
+            <div class="footer-contacts">
+                <div class="footer-contact-item"><strong>Orange County</strong><a href="tel:9494500777">(949) 450-0777</a></div>
+                <div class="footer-contact-item"><strong>San Diego County</strong><a href="tel:7606039400">(760) 603-9400</a></div>
+                <div class="footer-contact-item"><strong>Los Angeles County</strong><a href="tel:6268361200">(626) 836-1200</a></div>
+                <div class="footer-contact-item"><strong>Northern California</strong><a href="tel:4082791700">(408) 279-1700</a></div>
+                <div class="footer-contact-item"><strong>Denver</strong><a href="tel:7203447700">(720) 344-7700</a></div>
+            </div>
+            <hr class="footer-separator">
+            <div class="footer-bottom-row">
+                <div class="footer-sponsors">
+                    <img src="images/sponsors/footer-usssa-logo-2.png" alt="USSSA">
+                    <img src="images/sponsors/footer-ndpa-logo.png" alt="NDPA">
+                    <img src="images/sponsors/footer-member-issa-logo.png" alt="ISSA Member">
+                    <img src="images/sponsors/footer-stop-drowning-now-logo.png" alt="Stop Drowning Now">
+                </div>
+                <div class="footer-copyright">&copy; 2022 Splashes.<br>All Rights Reserved</div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>

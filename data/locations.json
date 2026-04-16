@@ -1,0 +1,28 @@
+{
+  "locations": [
+    {
+      "city": "Irvine",
+      "address": "123 Swim Way, Irvine, CA"
+    },
+    {
+      "city": "Huntington Beach",
+      "address": "456 Wave Blvd, Huntington Beach, CA"
+    },
+    {
+      "city": "Carlsbad",
+      "address": "789 Surf Ave, Carlsbad, CA"
+    },
+    {
+      "city": "Pasadena",
+      "address": "321 Dive Ct, Pasadena, CA"
+    },
+    {
+      "city": "San Jose",
+      "address": "654 Splash St, San Jose, CA"
+    },
+    {
+      "city": "Denver/Highlands Ranch",
+      "address": "987 Altitude Rd, Denver, CO"
+    }
+  ]
+}
